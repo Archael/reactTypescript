@@ -1,10 +1,8 @@
-export default function CourseGoal({
-  title,
-  desc,
-}: {
+interface CourseGoalProps {
   title: string;
   desc: string;
-}) {
+}
+export default function CourseGoal({ title, desc }: CourseGoalProps) {
   return (
     <article>
       <div>
