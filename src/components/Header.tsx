@@ -11,7 +11,7 @@ interface HeaderProps {
 const Header = ({ children, image }: HeaderProps) => {
   return (
     <header>
-      <img src={image.src} alt={image.alt} />
+      <img {...image} />
       {children}
     </header>
   );
