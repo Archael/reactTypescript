@@ -1,16 +1,21 @@
 import CourseGoal from './CourseGoal.tsx';
-import { type CourseGoal as CourseGoalType } from '../App.tsx';
+import { type CourseGoal as TypeCourseGoal } from '../App.tsx';
 
 interface CourseGoalListProps {
-  goals: CourseGoalType[];
+  goals: TypeCourseGoal[];
+  // function type
+  onDeleteGoal: (id: number) => void;
 }
 
-export default function CourseGoalList({ goals }: CourseGoalListProps) {
+export default function CourseGoalList({
+  goals,
+  onDeleteGoal,
+}: CourseGoalListProps) {
   return (
     <ul>
       {goals.map((goal) => (
         <li key={goal.id}>
-          <CourseGoal title={goal.title}>
+          <CourseGoal id={goal.id} title={goal.title} onDelete={onDeleteGoal}>
             <p>{goal.description}</p>
           </CourseGoal>
         </li>
